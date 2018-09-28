@@ -1,5 +1,8 @@
 /* #6 start the #external #action and say hello */
+"use strict";
 console.log("App is alive");
+/* Global Variable current location */
+var currentLocation = ["createdBy"," latitude"," longitude"]; 
 
 /**
  * #6 #Switcher function for the #channels name in the right app bar
@@ -26,7 +29,7 @@ function switchChannel(channelName) {
 
 /* #6 #liking a channel on #click */
 function star() {
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star.png');
+    $('#channel-star').attr('<i class="fas fa-star-o" style="font-size:24px;"></i>');
 }
 
 /**
@@ -51,3 +54,61 @@ function toggleEmojis() {
     /* $('#emojis').show(); // #show */
     $('#emojis').toggle(); // #toggle
 }
+function sendMessages() {
+
+	console.log('Sent Message', newMessage);
+	
+
+	
+}
+
+/* Constructor function message text*/
+function Message(CreatedBy, latitude, longitude, CreatedOn, ExpiresOn, text, own) {
+
+	this.CreatedBy = CreatedBy;
+  	this.latitude = latitude;
+  	this.longitude = longitude;
+  	this.CreatedOn = CreatedOn;
+	this.ExpiresOn = ExpiresOn;
+  	this.text = text;
+  	own = true;
+	
+	
+	
+	console.log('Sent Message', text);
+	
+createMessageElement();
+
+
+}
+var message1 = new Message("bootie.package.rums","20", "200","09/27/2018","09/28/2018", "HELLO CHATTER", "true");
+
+function createMessageElement() {
+	document.getElementById("demo8").innerHTML = message1.CreatedBy +" "+message1.latitude + " "+
+		message1.longitude + " "+message1.CreatedOn +" "+message1.ExpiresOn+" "+message1.text+".";
+}
+
+function sendMessage() {
+        document.getElementById('display').innerHTML = 
+        document.getElementById('newMessage').value;
+		
+  // Log input
+console.log('New Message', newMessage);
+}
+
+/* function for send button on-click */
+/*function sendmessage() {
+	    //Create a message element
+    
+createMessageElement()
+    //Write the new channel to the right app bar
+    document.getElementById('channelName').innerHTML = channelLocation;
+
+    //#6 change the #channel #location
+    document.getElementById('currentLocation').innerHTML = 'by <a href="http://w3w.co/upgrading.never.helps" target="_blank"><strong>upgrading.never.helps</strong></a>';
+
+    /* #6 #liking channels on #click 
+    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
+
+
+}*/

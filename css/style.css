@@ -55,6 +55,7 @@ button, strong {
     overflow-y: auto;
 }
 
+
 /* APP BAR */
 
 h1 {
@@ -141,7 +142,7 @@ li.selected {
 /* TAB BAR */
 
 /* #5 #smileys #lazy: we can reuse most of the tab-bar's styles for the chat-bar */
-#tab-bar, #chat-bar {
+#tab-bar {
     background-color: white;
     text-align: center;
 
@@ -154,8 +155,20 @@ li.selected {
     display: flex;
 }
 
+#chat-bar {
+    background-color: white;
+    
+
+    /* #5 #tab-bar #bottom */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+	    /* #5 #chat-bar #flexify the buttons*/
+    display: flex;
+}
+
 /* #5 #smileys #lazy: we can reuse most of the tab-bar buttons' styles for the chat-bar buttons */
-#tab-bar button, #chat-bar button {
+#tab-bar button {
     background-color: white;
     border: none;
     font-size: 13px;
@@ -166,7 +179,19 @@ li.selected {
     /* #5 #tab-bar #flexify the buttons by growing them equally */
     flex-grow: 1;
 }
+#chat-bar button {
+	/* #We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
 
+    background-color: white;
+    border: none;
+    font-size: 13px;
+    height: 72px;
+    padding: 16px;
+	
+    /* #5 #tab-bar #flexify the buttons by growing them equally */
+   
+	text-align: right;
+}
 #tab-bar button.selected {
     color: #3F51B5;
     border-bottom: 4px solid #3F51B5;
@@ -176,13 +201,19 @@ li.selected {
     display: block;
     margin: 0 auto 4px auto;
 }
+#tab-bar button fa {
+    display: block;
+    margin: 0 auto 4px auto;
+}
 
 /* #5 CHAT BAR */
 
-#chat-bar button {
+
     /* #5 #smileys #override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
-    width: auto;
-    flex-grow: 0;
+
+chat-bar button img {
+    display: block;
+    left: 0px;
 }
 
 #emojis {
@@ -269,4 +300,22 @@ li.selected {
 
 .message.own {
     margin-left: 17.5%;
+}
+/* input window for message */
+#newMessage {
+	width: 700px;
+	
+}
+/* send button */
+#send {
+	
+	width: 40px;
+	border: none;
+	background-color: white;
+}
+/* channel-meta buttons */
+.channel-meta button
+{
+	color: white;
+	background-color: blue;
 }
