@@ -3,7 +3,7 @@
 console.log("App is alive");
 /* Global Variable current location */
 var currentLocation = ["createdBy"," latitude"," longitude"]; 
-
+console.log('Showing current Location', currentLocation);
 /**
  * #6 #Switcher function for the #channels name in the right app bar
  * @param channelName Text which is set
@@ -19,7 +19,7 @@ function switchChannel(channelName) {
     document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/upgrading.never.helps" target="_blank"><strong>upgrading.never.helps</strong></a>';
 
     /* #6 #liking channels on #click */
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
+    $('#channel-star').attr('<i class="fas fa-star-o" style="font-size:24px;"></i>');
 
     /* #6 #highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
@@ -54,13 +54,7 @@ function toggleEmojis() {
     /* $('#emojis').show(); // #show */
     $('#emojis').toggle(); // #toggle
 }
-function sendMessages() {
 
-	console.log('Sent Message', newMessage);
-	
-
-	
-}
 
 /* Constructor function message text*/
 function Message(CreatedBy, latitude, longitude, CreatedOn, ExpiresOn, text, own) {
@@ -75,17 +69,19 @@ function Message(CreatedBy, latitude, longitude, CreatedOn, ExpiresOn, text, own
 	
 	
 	
-	console.log('Sent Message', text);
+	console.log('Sent Message', currentChannel);
 	
 createMessageElement();
 
 
 }
-var message1 = new Message("bootie.package.rums","20", "200","09/27/2018","09/28/2018", "HELLO CHATTER", "true");
+var currentChannel = new Message("bootie.package.rums","20", "200","09/27/2018","09/28/2018", "HELLO CHATTER", "true");
+
+console.log('Showing current Location', currentChannel);
 
 function createMessageElement() {
-	document.getElementById("demo8").innerHTML = message1.CreatedBy +" "+message1.latitude + " "+
-		message1.longitude + " "+message1.CreatedOn +" "+message1.ExpiresOn+" "+message1.text+".";
+	document.getElementById("demo8").innerHTML = currentChannel.CreatedBy +" "+currentChannel.latitude + " "+
+		currentChannel.longitude + " "+currentChannel.CreatedOn +" "+currentChannel.ExpiresOn+" "+currentChannel.text+".";
 }
 
 function sendMessage() {
@@ -93,22 +89,5 @@ function sendMessage() {
         document.getElementById('newMessage').value;
 		
   // Log input
-console.log('New Message', newMessage);
+
 }
-
-/* function for send button on-click */
-/*function sendmessage() {
-	    //Create a message element
-    
-createMessageElement()
-    //Write the new channel to the right app bar
-    document.getElementById('channelName').innerHTML = channelLocation;
-
-    //#6 change the #channel #location
-    document.getElementById('currentLocation').innerHTML = 'by <a href="http://w3w.co/upgrading.never.helps" target="_blank"><strong>upgrading.never.helps</strong></a>';
-
-    /* #6 #liking channels on #click 
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
-
-
-}*/
